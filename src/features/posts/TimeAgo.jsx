@@ -1,0 +1,18 @@
+import React from "react";
+import { parseISO, formatDistanceToNow } from "date-fns";
+
+export const TimeAgo = ({timestamp}) => {
+    let timeAgo = '';
+    if(timestamp){
+        const date = parseISO(timestamp);
+        const timePeriod = formatDistanceToNow(date);
+        timeAgo = `${timePeriod} ago`;
+        
+    }
+   
+    return (
+        <span title="{timeAgo}">
+            &nbsp; <strong> Date:</strong><i>{timeAgo}</i>
+        </span>
+    );
+}
